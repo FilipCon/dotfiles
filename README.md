@@ -25,10 +25,10 @@ Install
 ## Common NixOS instructions
 
 * `nix-channel --update`
-* `sudo nixos-rebuild switch -I nixos-config=<path-to-congiguration-file>
+* `sudo nixos-rebuild switch -I nixos-config=<path-to-congiguration-file>`
 
 ## TODO
--[ ] Use `home-manager` for user configuration
+- [ ] Use `home-manager` for user configuration
 
 - [ ] Fix `hardware-configuration.nix` file because I messed up during installation
  - Make fs by label and correct name (before installation)
