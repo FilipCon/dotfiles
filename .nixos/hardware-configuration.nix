@@ -18,11 +18,11 @@
       fsType = "ext4";
     };
 
- #  swapDevices = [
- #  {
- #    device = "~/.swapfile";
- #  }
- # ];
+  swapDevices = [
+  {
+    device = "/dev/disk/by-label/swap";
+  }
+ ];
 
 
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
