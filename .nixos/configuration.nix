@@ -26,7 +26,7 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Athens";
- 
+
   # allow proprietary software 
   nixpkgs.config.allowUnfree = true;
 
@@ -88,23 +88,19 @@
     firefox brave lshw htop 
   ];
 
-programs.fish.enable = true;
+  programs.fish.enable = true;
 
-  environment.gnome3.excludePackages = with pkgs.gnome3; [
+  environment.gnome.excludePackages = with pkgs.gnome; [
     epiphany
-#    evolution
     gnome-maps
     gnome-music
     gnome-photos
     gedit
- #   totem
-  #  gnome-calendar
     gnome-weather
-   # accerciser
     gnome-software
   ];
 
-#  programs.plank.enable = true;
+  #  programs.plank.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
