@@ -10,19 +10,19 @@
 
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "firewire_ohci" "usb_storage" "sd_mod" "sr_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "wl" ];
-  boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
+  boot.kernelModules = [ ]; # "wl"
+  boot.extraModulePackages = [ ]; # config.boot.kernelPackages.broadcom_sta
 
   fileSystems."/" =
     { device = "/dev/disk/by-label/msdos";
       fsType = "ext4";
     };
 
- swapDevices = [
-  {
-    device = "~/.swapfile";
-  }
- ]
+ #  swapDevices = [
+ #  {
+ #    device = "~/.swapfile";
+ #  }
+ # ];
 
 
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
