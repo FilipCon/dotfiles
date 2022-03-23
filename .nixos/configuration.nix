@@ -82,13 +82,16 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    emacs plank
-    wget git fish
-    firefox brave lshw htop 
-  ];
+    # text editors
+    vim emacs
 
-  programs.fish.enable = true;
+    # browsers
+    firefox brave
+
+    # tools
+    wget git fish
+    lshw htop
+  ];
 
   environment.gnome.excludePackages = with pkgs.gnome; [
     epiphany
@@ -99,8 +102,6 @@
     gnome-weather
     gnome-software
   ];
-
-  #  programs.plank.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
