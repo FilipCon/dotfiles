@@ -10,8 +10,8 @@
 
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "firewire_ohci" "usb_storage" "sd_mod" "sr_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ]; # "wl"
-  boot.extraModulePackages = [ ]; # config.boot.kernelPackages.broadcom_sta
+  boot.kernelModules = [ ];
+  boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
   fileSystems."/" =
     { device = "/dev/disk/by-label/msdos";
