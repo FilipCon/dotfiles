@@ -8,7 +8,7 @@
   boot.initrd.availableKernelModules = [ "ehci_pci" "ahci" "firewire_ohci"
                                          "usb_storage" "sd_mod" "sr_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.kernelModules = [ "wl" ];
   boot.kernelPackages = pkgs.linuxPackages_5_4;
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
