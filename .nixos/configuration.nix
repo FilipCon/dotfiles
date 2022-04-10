@@ -41,6 +41,9 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
   # services.xserver.windowManager.xmonad.enable = false;
+  services.gnome.core-utilities.enable = false;
+  services.gnome.tracker-miners.enable = false;
+  services.gnome.tracker.enable = false;
 
   # Configure keymap in X11
   services.xserver.layout = "us,el";
@@ -57,7 +60,7 @@
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  # Enable touchpad support (enabled default in most desktopManager).
+  # Enable touchpad support
   services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -76,8 +79,31 @@
     firefox brave
 
     # tools
-    wget git fish
+    wget git fish tree ffmpeg
     lshw pciutils htop
+    silver-searcher ripgrep
+
+    # dev
+    clojure babashka leiningen polylith
+    openjdk17
+    nodejs
+    docker docker-compose
+    dbeaver
+    postgresql sqlite
+    sbcl racket
+    cmake gcc
+    python38
+    texlive.combined.scheme-full
+
+    # other
+    signal-desktop
+    dropbox
+    kdenlive
+    blender
+    flameshot
+    inkscape
+    libreoffice
+    qbittorrent
   ];
 
   # Enable the OpenSSH daemon.
