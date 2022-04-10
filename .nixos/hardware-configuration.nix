@@ -9,13 +9,13 @@
                                          "usb_storage" "sd_mod" "sr_mod" "sdhci_pci" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "wl" ];
-  boot.kernelPackages = pkgs.linuxPackages_5_4;
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
 
   # gpu drivers
   nixpkgs.config.allowUnfree = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_340;
+  # boot.kernelPackages = pkgs.linuxPackages_5_4;
+  # services.xserver.videoDrivers = [ "nvidia" ];
+  # hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_340;
 
   fileSystems."/" =
     { device = "/dev/disk/by-label/msdos";
