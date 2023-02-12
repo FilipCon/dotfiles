@@ -133,12 +133,15 @@
     emacs
     wget git ripgrep
     htop
+    ntfs3g
   ];
 
   # Specify nerd-fonts to install
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "SourceCodePro" "DejaVuSansMono"]; })
   ];
+
+  fonts.fontDir.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
