@@ -52,23 +52,23 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # NOTE Run the following in the terminal to reset the settings after nixos-rebuilt
+  # gsettings reset org.gnome.desktop.input-sources xkb-options
+  # gsettings reset org.gnome.desktop.input-sources sources
+  services.xserver = {
+    enable = true;   # Enable the X11 windowing system.
+    layout = "us, gr";
+    exportConfiguration = true; # link /usr/share/X11/ properly
+    # xkbVariant = "gr";
+    xkbOptions = "caps:ctrl_modifier, grp:alt_space_toggle";
+  };
+
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
 
-  # Configure keymap in X11
-  # Run the following in the terminal to reset the settings after nixos-rebuilt
-  # gsettings reset org.gnome.desktop.input-sources xkb-options
-  # gsettings reset org.gnome.desktop.input-sources sources
-  services.xserver = {
-                      layout = "us";
-                      xkbVariant = "";
-                      xkbOptions = "caps:ctrl_modifier";
-                      };
 
   # use xkb outside X11
   console.useXkbConfig = true;
@@ -130,10 +130,14 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    emacs
-    wget git ripgrep
+    ((emacsPackagesFor emacs).emacsWithPackages (epkgs: [ epkgs.vterm
+                                                          epkgs.pdf-tools ]))
+    wget
+    git
+    ripgrep
     htop
     ntfs3g
+    fzf
   ];
 
   # Specify nerd-fonts to install
