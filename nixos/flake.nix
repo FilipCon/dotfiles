@@ -11,10 +11,7 @@
 
   outputs = { self, nixpkgs, home-manager }:
     let
-      user = "filipkon";
-      location = "$HOME/dotfiles/nixos";
       system = "x86_64-linux";
-
       pkgs = import nixpkgs {
         inherit system;
       };
