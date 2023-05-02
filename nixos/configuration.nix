@@ -117,7 +117,6 @@
       clojure babashka clj-kondo
       openjdk17
       nodejs
-      docker
       postgresql sqlite
       sbcl
 
