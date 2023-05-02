@@ -113,7 +113,7 @@
 
       signal-desktop
       dropbox
-
+      dbeaver
       clojure babashka clj-kondo
       openjdk17
       nodejs
