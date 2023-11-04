@@ -50,7 +50,6 @@
     enable = true;   # Enable the X11 windowing system.
     layout = "us,gr";
     exportConfiguration = true; # link /usr/share/X11/ properly
-    # xkbVariant = "gr";
     xkbOptions = "caps:ctrl_modifier, grp:alt_space_toggle";
   };
 
@@ -108,16 +107,18 @@
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
       brave
+      firefox
       librewolf
       thunderbird
 
       signal-desktop
-      dropbox
+
       dbeaver
-      clojure babashka clj-kondo
+      clojure babashka clj-kondo clojure-lsp
       openjdk17
       nodejs
       postgresql sqlite
+      sqlfluff                  # sql linter
       sbcl
 
       texlive.combined.scheme-full
@@ -138,14 +139,16 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    ((emacsPackagesFor emacs).emacsWithPackages (epkgs: [ epkgs.vterm
-                                                          epkgs.pdf-tools ]))
+    ((emacsPackagesFor emacs29).emacsWithPackages (epkgs: [ epkgs.vterm
+                                                            epkgs.pdf-tools ]))
     wget
     git
     ripgrep
     htop
     ntfs3g
     fzf
+    atool
+    unzip
   ];
 
   fonts.fonts = with pkgs; [
