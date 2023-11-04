@@ -122,17 +122,16 @@
       sqlfluff                  # sql linter
       sbcl
 
+      podman-compose
+
       texlive.combined.scheme-full
       ispell
     ];
   };
 
   # enable docker
-  virtualisation.docker.enable = true;
-  virtualisation.docker.rootless = {
-    enable = true;
-    setSocketVariable = true;
-  };
+  virtualisation.podman.enable = true;
+  virtualisation.podman.dockerCompat = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
