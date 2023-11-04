@@ -110,7 +110,8 @@
       firefox
       librewolf
       thunderbird
-
+      maestral
+      maestral-gui
       signal-desktop
 
       dbeaver
