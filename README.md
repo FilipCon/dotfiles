@@ -24,3 +24,10 @@ $ sudo nix-env -p /nix/var/nix/profiles/system --delete-generations +3
 $ sudo nix-env -p /nix/var/nix/profiles/system --delete-generations old
 $ sudo nix-env -p /nix/var/nix/profiles/system --delete-generations 7d
 ```
+
+* Free up some disk space
+
+``` sh
+$ nix-collect-garbage
+```
+

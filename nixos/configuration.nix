@@ -74,6 +74,8 @@
     gnome-initial-setup
   ]);
 
+  # environment.localBinInPath = true;
+
   programs.dconf.enable = true;
 
   # use xkb outside X11
@@ -81,6 +83,20 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.printing.drivers = [ pkgs.samsung-unified-linux-driver ];
+  hardware.printers = {
+    ensurePrinters = [
+      {
+        name = "Samsung_M2020";
+        location = "Home";
+        deviceUri = "usb://Samsung/M2020%20Series?serial=08HVB8GJ7F04Q2D";
+        model = "samsung/M262x.ppd";
+        ppdOptions = {
+          PageSize = "A4";
+        };
+      }
+    ];
+  };
 
   # Enable sound with pipewire.
   sound.enable = true;
@@ -106,26 +122,39 @@
     isNormalUser = true;
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [
+      # browsers
       brave
       firefox
-      librewolf
-      thunderbird
+      # librewolf
+
+      # dropbox client
       maestral
       maestral-gui
+
+      # communication
+      thunderbird
       signal-desktop
 
-      dbeaver
+      # programming
+
+      # clojure
       clojure babashka clj-kondo clojure-lsp
       openjdk17
       nodejs
+
+      # sql
+      dbeaver
       postgresql sqlite
       sqlfluff                  # sql linter
+
+      # common lisp
       sbcl
 
+      # containers
       podman-compose
 
+      # latex
       texlive.combined.scheme-full
-      ispell
     ];
   };
 
@@ -136,8 +165,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
+  # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     ((emacsPackagesFor emacs29).emacsWithPackages (epkgs: [ epkgs.vterm
                                                             epkgs.pdf-tools ]))
@@ -149,6 +177,9 @@
     fzf
     atool
     unzip
+    ispell
+    psensor
+    lshw
   ];
 
   fonts.fonts = with pkgs; [
