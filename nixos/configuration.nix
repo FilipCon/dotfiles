@@ -180,6 +180,7 @@
     ispell
     psensor
     lshw
+    config.nur.repos.dagger.dagger
   ];
 
   fonts.fonts = with pkgs; [
