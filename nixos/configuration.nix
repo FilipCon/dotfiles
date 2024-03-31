@@ -142,6 +142,15 @@
       openjdk17
       nodejs
 
+      # java lsp
+      jdt-language-server
+
+      # python
+      python3
+      python311Packages.python-lsp-server
+      python311Packages.ipython
+      jupyter
+
       # sql
       dbeaver
       postgresql sqlite
@@ -155,6 +164,17 @@
 
       # latex
       texlive.combined.scheme-full
+
+      # torrent client
+      qbittorrent
+
+      # media player
+      vlc
+
+      # docker ls
+      dockerfile-language-server-nodejs
+
+      # steam
     ];
   };
 
