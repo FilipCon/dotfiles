@@ -48,9 +48,9 @@
   # gsettings reset org.gnome.desktop.input-sources sources
   services.xserver = {
     enable = true;   # Enable the X11 windowing system.
-    layout = "us,gr";
+    xkb.layout = "us,gr";
     exportConfiguration = true; # link /usr/share/X11/ properly
-    xkbOptions = "caps:ctrl_modifier, grp:alt_space_toggle";
+    xkb.options = "caps:ctrl_modifier, grp:alt_space_toggle";
   };
 
   # Enable the GNOME Desktop Environment.
@@ -110,7 +110,7 @@
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput = {
+  services.libinput = {
     enable = true;
     touchpad.tapping = true;
     touchpad.naturalScrolling = false;
@@ -138,9 +138,11 @@
       # programming
 
       # clojure
-      clojure babashka clj-kondo clojure-lsp
+      clojure babashka clj-kondo clojure-lsp leiningen
       openjdk17
       nodejs
+
+      visualvm
 
       # java lsp
       jdt-language-server
@@ -152,7 +154,7 @@
       jupyter
 
       # sql
-      dbeaver
+      dbeaver-bin
       postgresql sqlite
       sqlfluff                  # sql linter
 
@@ -160,10 +162,15 @@
       sbcl
 
       # containers
-      podman-compose
+      # podman-compose
 
       # latex
       texlive.combined.scheme-full
+
+      # docker ls
+      dockerfile-language-server-nodejs
+
+      direnv
 
       # torrent client
       qbittorrent
@@ -171,16 +178,22 @@
       # media player
       vlc
 
-      # docker ls
-      dockerfile-language-server-nodejs
-
-      # steam
+      # k8s
+      minikube
+      kubectl
+      kubectx
+      kubernetes-helm
     ];
   };
 
   # enable docker
-  virtualisation.podman.enable = true;
-  virtualisation.podman.dockerCompat = true;
+  # virtualisation.podman.enable = true;
+  # virtualisation.podman.dockerCompat = true;
+  virtualisation.docker.enable = true;
+  virtualisation.docker.rootless = {
+    enable = true;
+    setSocketVariable = true;
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -188,7 +201,9 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     ((emacsPackagesFor emacs29).emacsWithPackages (epkgs: [ epkgs.vterm
-                                                            epkgs.pdf-tools ]))
+                                                            epkgs.pdf-tools
+                                                            epkgs.jinx]))
+    pciutils
     wget
     git
     ripgrep
