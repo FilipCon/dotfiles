@@ -13,8 +13,6 @@
 
   outputs = { self, nixpkgs, home-manager, nur }:
     let
-      # username = "filipkon";
-      host = "ideapad";
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       lib = nixpkgs.lib;
@@ -23,20 +21,39 @@
         nixosConfigurations = {
           ideapad = lib.nixosSystem {
             inherit system;
-            modules = [ nur.nixosModules.nur
-                        ./configuration.nix ];
+            modules =  with self.nixosModules; [
+              ({ config = { nix.registry.nixpkgs.flake = nixpkgs; }; })
+              nur.nixosModules.nur
+              home-manager.nixosModules.home-manager
+              platforms.ideapad
+              traits.base
+              traits.gnome
+              services.cups
+              users.filipkon
+              users.lifecheq
+            ];
           };
         };
 
         homeConfigurations = {
           filipkon = home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
-            # modules = [".home.nix"]
+            modules = [ ./users/filipkon/home.nix ];
+          };
+
+          lifecheq = home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            modules = [ ./users/lifecheq/home.nix ];
           };
         };
 
+        nixosModules = {
+          platforms.ideapad = ./platforms/ideapad.nix;
+          traits.base = ./traits/base.nix;
+          traits.gnome = ./traits/gnome.nix;
+          services.cups = ./services/cups.nix;
+          users.filipkon = ./users/filipkon;
+          users.lifecheq = ./users/lifecheq;
+        };
       };
-
-
-
 }
