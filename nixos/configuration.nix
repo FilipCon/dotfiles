@@ -118,72 +118,113 @@
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.filipkon = {
-    isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [
-      # browsers
-      brave
-      firefox
-      # librewolf
+  users.users = {
+    filipkon = {
+      isNormalUser = true;
+      extraGroups = [ "networkmanager" "wheel" "docker" ];
+      packages = with pkgs; [
+        # browsers
+        brave
+        firefox
+        # librewolf
 
-      # dropbox client
-      maestral
-      maestral-gui
+        # dropbox client
+        maestral
+        maestral-gui
 
-      # communication
-      thunderbird
-      signal-desktop
+        # communication
+        thunderbird
+        signal-desktop
+        slack
 
-      # programming
+        # programming
 
-      # clojure
-      clojure babashka clj-kondo clojure-lsp leiningen
-      openjdk17
-      nodejs
+        # clojure
+        clojure babashka clj-kondo clojure-lsp leiningen
+        openjdk17
+        nodejs
 
-      visualvm
+        visualvm
 
-      # java lsp
-      jdt-language-server
+        # java lsp
+        jdt-language-server
 
-      # python
-      python3
-      python311Packages.python-lsp-server
-      python311Packages.ipython
-      jupyter
+        # python
+        python3
+        python311Packages.python-lsp-server
+        python311Packages.ipython
+        jupyter
 
-      # sql
-      dbeaver-bin
-      postgresql sqlite
-      sqlfluff                  # sql linter
+        # sql
+        dbeaver-bin
+        postgresql sqlite
+        sqlfluff                  # sql linter
 
-      # common lisp
-      sbcl
+        # common lisp
+        sbcl
 
-      # containers
-      # podman-compose
+        # containers
+        # podman-compose
 
-      # latex
-      texlive.combined.scheme-full
+        # latex
+        texlive.combined.scheme-full
 
-      # docker ls
-      dockerfile-language-server-nodejs
+        # docker ls
+        dockerfile-language-server-nodejs
 
-      direnv
+        direnv
 
-      # torrent client
-      qbittorrent
+        # torrent client
+        qbittorrent
 
-      # media player
-      vlc
+        # media player
+        vlc
 
-      # k8s
-      minikube
-      kubectl
-      kubectx
-      kubernetes-helm
-    ];
+        # k8s
+        minikube
+        kubectl
+        kubectx
+        kubernetes-helm
+
+        # image processing
+        fiji
+
+        # games
+        steam
+      ];
+    };
+
+    lifecheq = {
+      isNormalUser = true;
+      extraGroups = [ "networkmanager" "wheel" "docker" ];
+      packages = with pkgs; [
+        # browsers
+        brave
+        chromium
+        firefox
+
+        # communication
+        thunderbird
+        slack
+
+        ## programming
+
+        # clojure
+        clojure
+        babashka
+        clj-kondo
+        clojure-lsp
+        leiningen
+        openjdk17
+        nodejs
+        visualvm
+
+        # sql
+        dbeaver-bin
+        postgresql
+        sqlfluff                  # sql linter
+      ];
+    };
   };
 
   # enable docker

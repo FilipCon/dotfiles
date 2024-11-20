@@ -13,7 +13,7 @@
 
   outputs = { self, nixpkgs, home-manager, nur }:
     let
-      username = "filipkon";
+      # username = "filipkon";
       host = "ideapad";
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
