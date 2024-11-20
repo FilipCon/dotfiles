@@ -15,9 +15,14 @@
     };
   };
 
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set fish_greeting # Disable greeting
+          '';
+  };
 
-    # Use `dconf watch /` to track stateful changes you are doing, then set them here.
+  # Use `dconf watch /` to track stateful changes you are doing, then set them here.
   dconf.settings = {
     "org/gnome/shell" = {
       disable-user-extensions = false;

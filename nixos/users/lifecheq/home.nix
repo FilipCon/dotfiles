@@ -4,13 +4,6 @@
   home.username = "lifecheq";
   home.homeDirectory = "/home/lifecheq";
 
-  programs.fish = {
-    enable = true;
-    interactiveShellInit = ''
-      set fish_greeting # Disable greeting
-          '';
-  };
-
   home.packages =  with pkgs; [
     # browsers
     brave
@@ -36,8 +29,18 @@
     # sql
     dbeaver-bin
     postgresql
-    sqlfluff                  # sql linter
+    sqlfluff
   ];
+
+  dconf.settings = {
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+      disable-extension-version-validation = true;
+    };
+    "org/gnome/desktop/peripherals/touchpad" = {
+      natural-scroll = false;
+    };
+  };
 
   programs.home-manager.enable = true;
   home.stateVersion = "24.05";
