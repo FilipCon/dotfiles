@@ -53,6 +53,7 @@
       nix-direnv
       jq
       graphviz
+      gcc
     ];
 
     home-manager.useGlobalPkgs = true;
