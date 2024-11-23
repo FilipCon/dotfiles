@@ -47,7 +47,6 @@
       atool
       unzip
       ispell
-      psensor
       lshw
       direnv
       nix-direnv
