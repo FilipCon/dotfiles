@@ -15,21 +15,35 @@
       disable-extension-version-validation = true;
       # `gnome-extensions list` for a list
       enabled-extensions = [
-        # "user-theme@gnome-shell-extensions.gcampax.github.com"
+        # "system-monitor@gnome-shell-extensions.gcampax.github.com"
+        "system-monitor-next@paradoxxx.zero.gmail.com"
         "trayIconsReloaded@selfmade.pl"
-        # "dash-to-panel@jderose9.github.com"
-        # "sound-output-device-chooser@kgshank.net"
-        # "space-bar@luchrioh"
+        "dash-to-dock@micxgx.gmail.com"
       ];
       favorite-apps = [
-        # "firefox.desktop"
-        # "code.desktop"
-        # "org.gnome.Terminal.desktop"
-        # "spotify.desktop"
-        # "virt-manager.desktop"
-        # "org.gnome.Nautilus.desktop"
+        "org.gnome.Console.desktop"
+        "org.gnome.Nautilus.desktop"
+        "brave-browser.desktop"
+        "emacs.desktop"
       ];
     };
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      multi-monitor = true;
+      show-trash = false;
+      show-mounts = false;
+      show-show-apps-button = false;
+      apply-custom-theme = true;
+      custom-theme-shrink = false;
+    };
+    # "org/gnome/shell/extensions/vitals" = {
+    #   show-storage = false;
+    #   show-voltage = true;
+    #   show-memory = true;
+    #   show-fan = true;
+    #   show-temperature = true;
+    #   show-processor = true;
+    #   show-network = true;
+    # };
     "org/gnome/desktop/interface" = {
       # color-scheme = "prefer-dark";
       enable-hot-corners = false;
@@ -48,21 +62,26 @@
     #   workspace-names = [ "Main" ];
     #   button-layout = "appmenu:minimize,maximize,close";
     # };
-    # "org/gnome/desktop/background" = {
-    #   picture-uri = "file://${./saturn.jpg}";
-    #   picture-uri-dark = "file://${./saturn.jpg}";
-    # };
-    # "org/gnome/desktop/screensaver" = {
-    #   picture-uri = "file://${./saturn.jpg}";
-    #   primary-color = "#3465a4";
-    #   secondary-color = "#000000";
-    # };
+    "org/gnome/desktop/background" = {
+      # picture-uri = "file://${./saturn.jpg}";
+      picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
+      picture-uri-dark = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-d.svg";
+      primary-color = "#241f31";
+    };
+    "org/gnome/desktop/screensaver" = {
+      picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
+      primary-color = "#241f31";
+    };
   };
 
   home.packages = with pkgs; [
     gnomeExtensions.user-themes
     gnomeExtensions.tray-icons-reloaded
     gnomeExtensions.dash-to-panel
+    # gnomeExtensions.vitals
+    # gnomeExtensions.system-monitor
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.system-monitor-next
 
     # browsers
     brave
