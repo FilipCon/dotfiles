@@ -35,8 +35,8 @@
     ]);
 
     environment.systemPackages = with pkgs; [
-      gnome.gnome-tweaks
-      gnome.gnome-characters
+      gnome-tweaks
+      gnome-characters
     ];
 
     services.gnome.gnome-keyring.enable = true;

@@ -17,8 +17,10 @@
       LC_NUMERIC = "en_US.UTF-8";
       LC_PAPER = "en_US.UTF-8";
       LC_TELEPHONE = "en_US.UTF-8";
-      LC_TIME = "en_US.UTF-8";
+      LC_TIME = "en_DK.UTF-8";  # monday as first day of the week
     };
+
+    programs.fish.enable = true;
 
     # enable docker
     # virtualisation.podman.enable = true;
@@ -53,6 +55,7 @@
       jq
       graphviz
       gcc
+      tealdeer
     ];
 
     home-manager.useGlobalPkgs = true;
