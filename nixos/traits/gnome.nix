@@ -19,7 +19,6 @@
     environment.gnome.excludePackages = (with pkgs; [
       gnome-photos
       gnome-tour
-    ]) ++ (with pkgs; [
       cheese # webcam tool
       gnome-music
       epiphany # web browser
@@ -35,7 +34,7 @@
     ]);
 
     environment.systemPackages = with pkgs; [
-      gnome-tweaks
+      # gnome-tweaks
       gnome-characters
     ];
 

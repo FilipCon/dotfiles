@@ -24,8 +24,8 @@
     maestral
     maestral-gui
 
-    # java lsp
-    jdt-language-server
+    jdt-language-server         # java lsp
+    nil                         # nix lsp
 
     # # python
     # python3

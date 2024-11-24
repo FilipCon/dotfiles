@@ -25,6 +25,8 @@
         "org.gnome.Nautilus.desktop"
         "brave-browser.desktop"
         "emacs.desktop"
+        "thunderbird.desktop"
+        "slack.desktop"
       ];
     };
     "org/gnome/shell/extensions/dash-to-dock" = {
@@ -35,15 +37,6 @@
       apply-custom-theme = true;
       custom-theme-shrink = false;
     };
-    # "org/gnome/shell/extensions/vitals" = {
-    #   show-storage = false;
-    #   show-voltage = true;
-    #   show-memory = true;
-    #   show-fan = true;
-    #   show-temperature = true;
-    #   show-processor = true;
-    #   show-network = true;
-    # };
     "org/gnome/desktop/interface" = {
       # color-scheme = "prefer-dark";
       enable-hot-corners = false;
@@ -54,14 +47,6 @@
     "org/gnome/calendar" = {
       show-week-numbers = true;
     };
-    # `gsettings get org.gnome.shell.extensions.user-theme name`
-    # "org/gnome/shell/extensions/user-theme" = {
-    #   name = "palenight";
-    # };
-    # "org/gnome/desktop/wm/preferences" = {
-    #   workspace-names = [ "Main" ];
-    #   button-layout = "appmenu:minimize,maximize,close";
-    # };
     "org/gnome/desktop/background" = {
       # picture-uri = "file://${./saturn.jpg}";
       picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
@@ -108,6 +93,8 @@
 
     # docker ls
     dockerfile-language-server-nodejs
+
+    postman
   ];
 
   programs.home-manager.enable = true;
