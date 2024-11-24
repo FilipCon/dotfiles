@@ -28,6 +28,7 @@
               platforms.ideapad
               traits.base
               traits.gnome
+              traits.nvidia
               services.cups
               users.filipkon
               users.lifecheq
@@ -51,6 +52,7 @@
           platforms.ideapad = ./platforms/ideapad.nix;
           traits.base = ./traits/base.nix;
           traits.gnome = ./traits/gnome.nix;
+          traits.nvidia = ./traits/nvidia.nix;
           services.cups = ./services/cups.nix;
           users.filipkon = ./users/filipkon;
           users.lifecheq = ./users/lifecheq;
