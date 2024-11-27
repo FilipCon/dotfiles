@@ -23,16 +23,16 @@
     programs.fish.enable = true;
     programs.steam.enable = true;
 
-    # Thunar file manager
-    programs.thunar.enable = true;
-    programs.xfconf.enable = true;
-    programs.thunar.plugins = with pkgs.xfce; [
-      thunar-archive-plugin
-      thunar-volman
-      thunar-dropbox-plugin
-    ];
-    services.gvfs.enable = true; # Mount, trash, and other functionalities
-    services.tumbler.enable = true; # Thumbnail support for images
+    # # Thunar file manager
+    # programs.thunar.enable = true;
+    # programs.xfconf.enable = true;
+    # programs.thunar.plugins = with pkgs.xfce; [
+    #   thunar-archive-plugin
+    #   thunar-volman
+    #   thunar-dropbox-plugin
+    # ];
+    # services.gvfs.enable = true; # Mount, trash, and other functionalities
+    # services.tumbler.enable = true; # Thumbnail support for images
 
     # enable docker
     # virtualisation.podman.enable = true;
@@ -57,7 +57,7 @@
       git
       ripgrep
       htop
-      nvtop
+      nvtopPackages.full
       ntfs3g
       fzf
       atool

@@ -28,7 +28,7 @@
               platforms.ideapad
               traits.base
               traits.gnome
-              traits.nvidia
+              # traits.nvidia
               services.cups
               users.filipkon
               users.lifecheq

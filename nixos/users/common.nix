@@ -22,8 +22,8 @@
       ];
       favorite-apps = [
         "org.gnome.Console.desktop"
-        "thunar.desktop"
-        # "org.gnome.Nautilus.desktop"
+        # "thunar.desktop"
+        "org.gnome.Nautilus.desktop"
         "brave-browser.desktop"
         "emacs.desktop"
         "thunderbird.desktop"
@@ -34,8 +34,8 @@
       icon-display = false;
       show-tooltip = true;
       disk-display = true;
-      gpu-display = true;
-      gpu-show-menu = true;
+      # gpu-display = true;
+      # gpu-show-menu = true;
       thermal-display = true;
       thermal-style = "digit";
       thermal-sensor-label = "coretemp - Package id 0";
