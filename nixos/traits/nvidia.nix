@@ -2,7 +2,6 @@
 
 {
   config = {
-    programs.steam.enable = true;
 
     nixpkgs.config.allowUnfree = true;
     nixpkgs.config.nvidia.acceptLicense = true;
@@ -14,7 +13,6 @@
     services.xserver.videoDrivers = ["nvidia"];
 
     hardware.nvidia = {
-
       # Modesetting is required.
       modesetting.enable = true;
 
@@ -42,7 +40,8 @@
       nvidiaSettings = true;
 
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
-      package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
+      package = config.boot.kernelPackages.nvidiaPackages.production; 
+      # package = config.boot.kernelPackages.nvidiaPackages.beta;
 
       prime = {
         sync.enable = true;
@@ -52,5 +51,12 @@
         intelBusId = "PCI:0:2:0";
       };
     };
+    
+    boot.extraModprobeConfig = ''
+      blacklist nouveau
+      options nouveau modeset=0
+    '';
+    boot.blacklistedKernelModules = [ "nouveau" ];
+    boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_drm" "nvidia_uvm" ];
   };
 }

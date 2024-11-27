@@ -14,9 +14,11 @@
       exportConfiguration = true; # link /usr/share/X11/ properly
       xkb.options = "caps:ctrl_modifier, grp:alt_space_toggle";
       displayManager.gdm.enable = true;
+      displayManager.gdm.wayland = true;
       desktopManager.gnome.enable = true;
     };
     environment.gnome.excludePackages = (with pkgs; [
+      # nautilus
       gnome-photos
       gnome-tour
       cheese # webcam tool

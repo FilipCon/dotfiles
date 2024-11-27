@@ -22,12 +22,24 @@
       ];
       favorite-apps = [
         "org.gnome.Console.desktop"
-        "org.gnome.Nautilus.desktop"
+        "thunar.desktop"
+        # "org.gnome.Nautilus.desktop"
         "brave-browser.desktop"
         "emacs.desktop"
         "thunderbird.desktop"
         "slack.desktop"
       ];
+    };
+    "org/gnome/shell/extensions/system-monitor" = {
+      icon-display = false;
+      show-tooltip = true;
+      disk-display = true;
+      gpu-display = true;
+      gpu-show-menu = true;
+      thermal-display = true;
+      thermal-style = "digit";
+      thermal-sensor-label = "coretemp - Package id 0";
+      fan-show-menu = false;
     };
     "org/gnome/shell/extensions/dash-to-dock" = {
       multi-monitor = true;

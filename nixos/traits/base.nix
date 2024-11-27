@@ -21,6 +21,18 @@
     };
 
     programs.fish.enable = true;
+    programs.steam.enable = true;
+
+    # Thunar file manager
+    programs.thunar.enable = true;
+    programs.xfconf.enable = true;
+    programs.thunar.plugins = with pkgs.xfce; [
+      thunar-archive-plugin
+      thunar-volman
+      thunar-dropbox-plugin
+    ];
+    services.gvfs.enable = true; # Mount, trash, and other functionalities
+    services.tumbler.enable = true; # Thumbnail support for images
 
     # enable docker
     # virtualisation.podman.enable = true;
@@ -39,11 +51,13 @@
       ((emacsPackagesFor emacs29).emacsWithPackages (epkgs: [ epkgs.vterm
                                                               epkgs.pdf-tools
                                                               epkgs.jinx]))
+      
       pciutils
       wget
       git
       ripgrep
       htop
+      nvtop
       ntfs3g
       fzf
       atool
