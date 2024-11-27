@@ -40,6 +40,8 @@
       thermal-style = "digit";
       thermal-sensor-label = "coretemp - Package id 0";
       fan-show-menu = false;
+      disk-usage-style = "bar";
+      net-speed-in-bits = true;
     };
     "org/gnome/shell/extensions/dash-to-dock" = {
       multi-monitor = true;
