@@ -59,7 +59,10 @@
       natural-scroll = false;
     };
     "org/gnome/calendar" = {
-      show-week-numbers = true;
+      show-weekdate = true;
+    };
+    "org/gnome/settings-daemon/plugins/color" = {
+      night-light-enabled = true;
     };
     "org/gnome/desktop/background" = {
       # picture-uri = "file://${./saturn.jpg}";
