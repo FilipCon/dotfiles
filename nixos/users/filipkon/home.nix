@@ -25,7 +25,12 @@
     maestral-gui
 
     jdt-language-server         # java lsp
+
+    # nix
+    alejandra                   # nix formatter
+    nix-tree                    # dependency graphs of Nix derivations
     nil                         # nix lsp
+
 
     # # python
     # python3
@@ -42,11 +47,11 @@
     # latex
     texlive.combined.scheme-full
 
-    # torrent client
-    qbittorrent
-
-    # media player
-    vlc
+    # media
+    vlc                         # media player
+    oculante                    # image viewer
+    qbittorrent                 # torrent client
+    fiji     # image processing
 
     # k8s
     minikube
@@ -57,7 +62,8 @@
     # ci/cd
     # config.nur.repos.dagger.dagger
 
-    # image processing
-    fiji
+    # investments
+    portfolio
+    wealthfolio
   ];
 }

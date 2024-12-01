@@ -54,6 +54,7 @@
     "org/gnome/desktop/interface" = {
       # color-scheme = "prefer-dark";
       enable-hot-corners = false;
+      show-battery-percentage = true;
     };
     "org/gnome/desktop/peripherals/touchpad" = {
       natural-scroll = false;
@@ -73,6 +74,13 @@
     "org/gnome/desktop/screensaver" = {
       picture-uri = "file:///run/current-system/sw/share/backgrounds/gnome/blobs-l.svg";
       primary-color = "#241f31";
+    };
+    "org/gnome/desktop/session" = {
+      idle-delay = 0;
+    };
+    "org/gnome/settings-daemon/plugins/power" = {
+      sleep-inactive-battery-type = "suspend";
+      sleep-inactive-ac-type = "nothing";
     };
   };
 
@@ -96,6 +104,7 @@
 
     # clojure
     clojure babashka clj-kondo clojure-lsp leiningen
+    # jdk
     openjdk17
     nodejs
     visualvm
@@ -108,10 +117,13 @@
     # latex
     texlive.combined.scheme-full
 
-    # docker ls
-    dockerfile-language-server-nodejs
+    # docker
+    dockerfile-language-server-nodejs # lsp
+    dive                              # analyze docker images
 
+    # http
     postman
+    hoppscotch                  # Open-Source Postman
   ];
 
   programs.home-manager.enable = true;

@@ -70,6 +70,7 @@
       graphviz
       gcc
       tealdeer
+      bat
     ];
 
     home-manager.useGlobalPkgs = true;
