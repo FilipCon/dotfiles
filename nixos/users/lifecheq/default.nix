@@ -6,6 +6,7 @@
     users.users.lifecheq = {
       isNormalUser = true;
       extraGroups = [ "networkmanager" "wheel" "docker" ];
+      shell = pkgs.fish;
     };
   };
 }

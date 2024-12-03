@@ -18,8 +18,6 @@
   };
 
   home.packages = with pkgs; [
-    signal-desktop
-
     # dropbox client
     maestral
     maestral-gui

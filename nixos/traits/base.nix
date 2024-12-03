@@ -43,6 +43,13 @@
       setSocketVariable = true;
     };
 
+    system.activationScripts.binbash = {
+      deps = [ "binsh" ];
+      text = ''
+         ln -sf /bin/sh /bin/bash
+    '';
+    };
+
     # Allow unfree packages
     nixpkgs.config.allowUnfree = true;
 
@@ -50,11 +57,14 @@
     environment.systemPackages = with pkgs; [
       ((emacsPackagesFor emacs29).emacsWithPackages (epkgs: [ epkgs.vterm
                                                               epkgs.pdf-tools
-                                                              epkgs.jinx]))
+                                                              epkgs.jinx
+                                                              epkgs.zprint-format
+                                                              epkgs.zprint-mode]))
       
       pciutils
       wget
       git
+      git-credential-manager
       ripgrep
       htop
       nvtopPackages.full
@@ -71,6 +81,8 @@
       gcc
       tealdeer
       bat
+      lm_sensors
+      gnumake
     ];
 
     home-manager.useGlobalPkgs = true;

@@ -1,5 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
+let
+  inherit (lib.gvariant) mkTuple mkUint32;
+in
 {
   programs.fish = {
     enable = true;
@@ -13,6 +16,7 @@
     "org/gnome/shell" = {
       disable-user-extensions = false;
       disable-extension-version-validation = true;
+      last-selected-power-profile = "performance";
       # `gnome-extensions list` for a list
       enabled-extensions = [
         # "system-monitor@gnome-shell-extensions.gcampax.github.com"
@@ -76,7 +80,7 @@
       primary-color = "#241f31";
     };
     "org/gnome/desktop/session" = {
-      idle-delay = 0;
+      idle-delay = mkUint32 0;
     };
     "org/gnome/settings-daemon/plugins/power" = {
       sleep-inactive-battery-type = "suspend";
@@ -101,9 +105,15 @@
     # communication
     thunderbird
     slack
+    signal-desktop
+
+    # docs
+    xournalpp
+    libreoffice
 
     # clojure
     clojure babashka clj-kondo clojure-lsp leiningen
+    zprint
     # jdk
     openjdk17
     nodejs
