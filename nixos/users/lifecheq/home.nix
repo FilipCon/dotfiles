@@ -30,5 +30,8 @@
     chromium
     heroku
     python3
+    envsubst
+    # teams
+    teams-for-linux
   ];
 }

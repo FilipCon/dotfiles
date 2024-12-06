@@ -50,8 +50,9 @@
     '';
     };
 
-    # Allow unfree packages
+    # Allow unfree and unsupported packages
     nixpkgs.config.allowUnfree = true;
+    # nixpkgs.config.allowUnsupportedSystem = true;
 
     # List packages installed in system profile.
     environment.systemPackages = with pkgs; [
@@ -83,6 +84,7 @@
       bat
       lm_sensors
       gnumake
+      dmidecode
     ];
 
     home-manager.useGlobalPkgs = true;
