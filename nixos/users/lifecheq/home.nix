@@ -29,9 +29,11 @@
   home.packages =  with pkgs; [
     chromium
     heroku
+
     python3
+    # python312Packages.grip
+
     envsubst
-    # teams
     teams-for-linux
   ];
 }

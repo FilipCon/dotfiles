@@ -29,7 +29,7 @@ in
         # "thunar.desktop"
         "org.gnome.Nautilus.desktop"
         "brave-browser.desktop"
-        "emacs.desktop"
+        # "emacs.desktop"
         "thunderbird.desktop"
         "slack.desktop"
       ];
@@ -134,6 +134,9 @@ in
     # http
     postman
     hoppscotch                  # Open-Source Postman
+
+    pandoc
+    mermaid-cli
   ];
 
   programs.home-manager.enable = true;
