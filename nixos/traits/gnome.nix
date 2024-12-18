@@ -11,7 +11,7 @@
     services.xserver = {
       enable = true; # Enable the X11 windowing system.
       xkb.layout = "us,gr";
-      xkbVariant = "";
+      xkb.variant = "";
       exportConfiguration = true; # link /usr/share/X11/ properly
       xkb.options = "caps:ctrl_modifier, grp:win_space_toggle";
       displayManager.gdm.enable = true;
