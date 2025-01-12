@@ -56,12 +56,6 @@
 
     # List packages installed in system profile.
     environment.systemPackages = with pkgs; [
-      ((emacsPackagesFor emacs29).emacsWithPackages (epkgs: [ epkgs.vterm
-                                                              epkgs.pdf-tools
-                                                              epkgs.jinx
-                                                              epkgs.zprint-format
-                                                              epkgs.zprint-mode]))
-      
       pciutils
       wget
       git
@@ -85,6 +79,7 @@
       lm_sensors
       gnumake
       dmidecode
+      xorg.xkill
     ];
 
     home-manager.useGlobalPkgs = true;

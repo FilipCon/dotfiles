@@ -139,6 +139,16 @@ in
     mermaid-cli
   ];
 
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs;  # replace with pkgs.emacs-gtk, or a version provided by the community overlay if desired.
+    extraPackages = epkgs : [ epkgs.vterm
+                              epkgs.pdf-tools
+                              epkgs.jinx
+                              epkgs.zprint-format
+                              epkgs.zprint-mode];
+  };
+
   programs.home-manager.enable = true;
   home.stateVersion = "24.05";
 }
