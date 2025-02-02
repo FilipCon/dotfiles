@@ -63,5 +63,11 @@
     # investments
     portfolio
     wealthfolio
+
+    # vpn
+    protonvpn-gui
+
+    # games
+    pokemmo-installer
   ];
 }
