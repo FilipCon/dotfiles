@@ -137,6 +137,9 @@ in
 
     pandoc
     mermaid-cli
+
+    # pdf utils
+    poppler_utils
   ];
 
   programs.emacs = {
