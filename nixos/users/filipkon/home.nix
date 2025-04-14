@@ -69,5 +69,7 @@
 
     # games
     pokemmo-installer
+
+    discord
   ];
 }

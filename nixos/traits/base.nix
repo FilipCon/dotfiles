@@ -86,7 +86,8 @@
     home-manager.useUserPackages = true;
 
     fonts.packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "SourceCodePro" "DejaVuSansMono"]; })
+      nerd-fonts.dejavu-sans-mono
+      nerd-fonts.sauce-code-pro
     ];
 
     fonts.fontDir.enable = true;

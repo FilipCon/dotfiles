@@ -23,7 +23,7 @@
             inherit system;
             modules =  with self.nixosModules; [
               ({ config = { nix.registry.nixpkgs.flake = nixpkgs; }; })
-              nur.nixosModules.nur
+              nur.modules.nixos.default
               home-manager.nixosModules.home-manager
               platforms.ideapad
               traits.base
