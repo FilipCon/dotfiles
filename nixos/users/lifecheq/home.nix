@@ -33,6 +33,7 @@
     python3
     # python312Packages.grip
 
+    jmeter
     envsubst
     teams-for-linux
   ];
